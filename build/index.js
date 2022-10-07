@@ -17,7 +17,7 @@ const axios_1 = __importDefault(require("axios"));
 /** Use the free API https://restcountries.com/
  * You will use the following endpoints
  * https://restcountries.com/v2/name/${name} for countries by name
- * https://restcountries.com/v2/regionalbloc/${regionalbloc} for region blocks
+ *  for region blocks
  */
 /** Create getCountry Function here */
 function getCountry(countryName) {
@@ -45,8 +45,19 @@ function getRegionCountries(regionalbloc) {
     });
 }
 /** Create getRegionCapitals function here */
+function getRegionCapitals(regionalBloc) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const getApi = yield (0, axios_1.default)(`https://restcountries.com/v2/regionalbloc/${regionalBloc}`);
+        const data = getApi.data;
+        const capitals = [];
+        for (let i = 0; i < data.length; i++) {
+            capitals.push(data[i].capital);
+        }
+        return capitals;
+    });
+}
 exports.default = {
     getCountry,
     getRegionCountries,
-    // getRegionCapitals
+    getRegionCapitals
 };

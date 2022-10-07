@@ -4,7 +4,7 @@ import axios from 'axios';
 /** Use the free API https://restcountries.com/
  * You will use the following endpoints
  * https://restcountries.com/v2/name/${name} for countries by name
- * https://restcountries.com/v2/regionalbloc/${regionalbloc} for region blocks
+ *  for region blocks
  */
 
 /** Create getCountry Function here */
@@ -35,9 +35,20 @@ async function getRegionCountries(regionalbloc: string) {
 }
 
 /** Create getRegionCapitals function here */
+async function getRegionCapitals(regionalBloc: string) {
+  const getApi = await axios(
+    `https://restcountries.com/v2/regionalbloc/${regionalBloc}`
+  );
+  const data = getApi.data;
+  const capitals = [];
+  for (let i = 0; i < data.length; i++) {
+    capitals.push(data[i].capital);
+  }
+  return capitals;
+}
 
 export default {
   getCountry,
   getRegionCountries,
-  // getRegionCapitals
+  getRegionCapitals,
 };

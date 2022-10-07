@@ -22,9 +22,9 @@ it("should get basic data on the country canada", () => __awaiter(void 0, void 0
     });
 }));
 /** Add test for getRegionCountries function here */
-// it("should get capitals of NAFTA countries", async () => {
-//   const data = await countries.getRegionCapitals('nafta');
-//   expect(data).toEqual([
-//     'Ottawa', 'Mexico City', 'Washington, D.C.'
-//   ]);
-// });
+it("should get capitals of NAFTA countries", () => __awaiter(void 0, void 0, void 0, function* () {
+    const data = yield index_1.default.getRegionCapitals('nafta');
+    expect(data).toEqual([
+        'Ottawa', 'Mexico City', 'Washington, D.C.'
+    ]);
+}));
