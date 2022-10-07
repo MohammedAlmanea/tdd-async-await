@@ -13,18 +13,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../index"));
-it("should get basic data on the country canada", () => __awaiter(void 0, void 0, void 0, function* () {
+it('should get basic data on the country canada', () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield index_1.default.getCountry('canada');
     expect(data).toEqual({
         capital: 'Ottawa',
         region: 'Americas',
-        numericCode: '124'
+        numericCode: '124',
     });
 }));
 /** Add test for getRegionCountries function here */
-it("should get capitals of NAFTA countries", () => __awaiter(void 0, void 0, void 0, function* () {
+it('should get all countries of NAFTA', () => __awaiter(void 0, void 0, void 0, function* () {
+    const data = yield index_1.default.getRegionCountries('NAFTA');
+    expect(data).toEqual(['Canada', 'Mexico', 'United States of America']);
+}));
+it('should get capitals of NAFTA countries', () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield index_1.default.getRegionCapitals('nafta');
-    expect(data).toEqual([
-        'Ottawa', 'Mexico City', 'Washington, D.C.'
-    ]);
+    expect(data).toEqual(['Ottawa', 'Mexico City', 'Washington, D.C.']);
 }));

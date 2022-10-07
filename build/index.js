@@ -59,5 +59,5 @@ function getRegionCapitals(regionalBloc) {
 exports.default = {
     getCountry,
     getRegionCountries,
-    getRegionCapitals
+    getRegionCapitals,
 };
