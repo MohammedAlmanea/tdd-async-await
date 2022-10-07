@@ -23,11 +23,11 @@ const axios_1 = __importDefault(require("axios"));
 function getCountry(countryName) {
     return __awaiter(this, void 0, void 0, function* () {
         const getApi = yield (0, axios_1.default)(`https://restcountries.com/v2/name/${countryName}`);
-        const data = getApi.data;
+        const data = getApi.data[0];
         const basicData = {
-            capital: data[0].capital,
-            region: data[0].region,
-            numericCode: data[0].numericCode,
+            capital: data.capital,
+            region: data.region,
+            numericCode: data.numericCode,
         };
         return basicData;
     });

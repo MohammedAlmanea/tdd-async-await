@@ -12,11 +12,11 @@ async function getCountry(countryName: string) {
   const getApi = await axios(
     `https://restcountries.com/v2/name/${countryName}`
   );
-  const data = getApi.data;
+  const data = getApi.data[0];
   const basicData = {
-    capital: data[0].capital,
-    region: data[0].region,
-    numericCode: data[0].numericCode,
+    capital: data.capital,
+    region: data.region,
+    numericCode: data.numericCode,
   };
   return basicData;
 }
